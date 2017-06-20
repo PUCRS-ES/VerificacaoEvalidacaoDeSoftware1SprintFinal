@@ -33,7 +33,8 @@ public class Controlador {
 	
 	public boolean resetH(int n) {
 		if(0 <= n && n < sensores.length) {
-			if (!sensores[n].getH())
+			//nao desabilita o sensor se o controlador estiver em alerta (qualquer um dos sensores em alerta)
+			if (!sensores[n].getH() || (sensores[0].getAlerta() || sensores[1].getAlerta()))
 				return false;
 			else {
 				sensores[n].resetH();
