@@ -67,8 +67,8 @@ public class ControladorTest {
 	public void TestSequence14(){
 		control.setH(1);
 		control.setH(0);
-		control.alerta(1);
-		control.resetAlerta(1);
+		control.getSensores()[1].setAlerta();
+		control.getSensores()[1].resetAlerta();
 		control.setH(1);
 		
 		assertEquals(control.getSensores()[0].getH(), true);
@@ -81,8 +81,8 @@ public class ControladorTest {
 	public void TestSequence20(){
 		control.setH(1);
 		control.setH(0);
-		control.alerta(0);
-		control.alerta(1);		
+		control.getSensores()[0].setAlerta();
+		control.getSensores()[1].setAlerta();
 		control.resetH(1);
 		
 		assertEquals(control.getSensores()[0].getH(), true);
@@ -95,9 +95,9 @@ public class ControladorTest {
 	public void TestSequence29(){
 		control.setH(1);
 		control.setH(0);
-		control.alerta(1);
-		control.alerta(0);		
-		control.resetAlerta(0);
+		control.getSensores()[1].setAlerta();
+		control.getSensores()[0].setAlerta();		
+		control.getSensores()[0].resetAlerta();
 		control.resetH(1);
 
 		assertEquals(control.getSensores()[0].getH(), true);
@@ -110,9 +110,9 @@ public class ControladorTest {
 	public void TestSequence35(){
 		control.setH(1);
 		control.setH(0);
-		control.alerta(1);
-		control.alerta(0);		
-		control.resetAlerta(1);
+		control.getSensores()[1].setAlerta();
+		control.getSensores()[0].setAlerta();		
+		control.getSensores()[1].resetAlerta();
 		control.resetH(1);
 	
 		assertEquals(control.getSensores()[0].getH(), true);
